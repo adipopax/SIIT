@@ -27,4 +27,4 @@ Path types:
 Git:
       -> Working directory -> Here we change our files during development .
       -> Staging -> define which files or changes we want to commit to the local repository
-      -> Local repository -> Stores history about all the changes (commit)
+      -> Local repository -> Stores history about all the changes 
