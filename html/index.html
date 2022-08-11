@@ -15,12 +15,14 @@
 
 -->
 
-<!-- Encryption -> Reversible -->
-<!-- Hashing -> Encrypts info forever -->
-<!-- Hashing -> Encrypts info forever 123 -> abcd -->
-<!-- Hashing -> Encrypts info forever 123-> salt -> abcd -->
-<!-- Hashing -> Encrypts info forever 123 -> something random -> abcds -->
-<!-- Hashing -> Encrypts info forever 123 -> something random -> abcda -->
+<!-- 
+      Encryption -> Reversible
+      Hashing -> Encrypts info forever 
+      Hashing -> Encrypts info forever 123 -> abcd
+      Hashing -> Encrypts info forever 123-> salt -> abcd 
+      Hashing -> Encrypts info forever 123 -> something random -> abcds 
+      Hashing -> Encrypts info forever 123 -> something random -> abcda 
+-->
 
 <!--HTML-->
 <!-- <-(Comentarii)
@@ -39,10 +41,10 @@
             </tag4>          |
       </tag1>
 
-      atributes - can one or many -> configure elements
+      attributes - can one or many -> configure elements
 -->
 
-<!DOCTYPE html> <!-- defines waht language the browser should use , version HTML5 , if is not present browser enters Quarks mode-->
+<!DOCTYPE html> <!-- defines what language the browser should use , version HTML5 , if is not present browser enters Quarks mode-->
 <html lang="en">
       <head><!-- this is the place to put metadata !important all content from here won't be seen on the page -->
             <meta description="This is a test page for Siit-29">
@@ -66,7 +68,7 @@
             <!-- 
                   Elements can be :
                   Block: (ex: p, div) expands to the whole width of the page and push other content to the new line
-                  Inline: (ex: span. img) tries to ocupie as least space open and they don't push thing around
+                  Inline: (ex: span. img) tries to occupy as least space open and they don't push thing around
             -->
             <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas error asperiores consequatur voluptatem maxime enim sit. Nemo, reiciendis, neque itaque placeat quasi suscipit dicta illo libero, beatae ab ea totam?
@@ -75,12 +77,13 @@
             <span>Hello</span>
             <span>World</span>
             <span>!</span>
-
-            <pre>
+            
+            <pre> <!--format the context and show it how is written-->
                   <span>Hello</span>
                   <span>World</span>
                   <span>!</span>
             </pre>
+            <pre><span>Hello</span><span>World</span></pre>
 
             <span>Hello</span><span>World</span><span>!</span>
 
@@ -102,11 +105,117 @@
             <a href="https://www.google.com" target="_blank">Go to google</a> <!-- always put the absolute path -->
 
             <div>
-                  <img src="./img.png" width="300px" height="300px"/>
-                  <img src="./img.pngs" width="300px" height="300px" alt="Image of an operating system model"/>
+                  <img src="./assets/img.png" width="300px" height="300px"/>
+                  <img src="./assets/img.pngs" width="300px" height="300px" alt="Image of an operating system model"/>
+                  <img src="https://picsum.photos/1920/1080" width="200px" height="300px"/>
             </div>
+
+            <div>
+                  <!-- Progressive enhancement -->
+                  <picture>     <!--Browser will load the image that we need , it depends on the resoluton of the screen-->
+                        <source srcset="https://picsum.photos/200/300" media="(max-width: 400px)">
+                        <source srcset="https://picsum.photos/400/600" media="(max-width: 700px)">
+                        <source srcset="https://picsum.photos/800/1200" media="(max-width: 1200px)">
+                        <source srcset="https://picsum.photos/800/1200" media="(max-width: 1600px)">
+                        <source srcset="https://picsum.photos/200/300" media="(min-width: 600px)">
+                        <source srcset="https://picsum.photos/400/600" media="(min-width: 1200px)">
+                        <source srcset="https://picsum.photos/800/1200" media="(min-width: 1600px)">
+                        <img src="https://picsum.photos/800/1200"/>
+                  </picture>
+            </div>
+                        <!-- LISTS CAN BE NESTED  -->
+            <ol>  <!-- Can put attributes 1, A, a, I, i-->       
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                  <li>Item 4</li>
+            </ol>
+
+            <ul> <!-- Can put attributes circle, square, etc.-->
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                  <li>Item 4</li>
+            </ul>
+
+            <dl>
+                  <dt>Title</dt>
+                  <dd>Content for my use cases</dd>
+                  <dt>Title</dt>
+                  <dd>Content for my use cases</dd>
+                  <dt>Title</dt>
+                  <dd>Content for my use cases</dd>
+                  <!-- Both dt and dd can be found together -->
+            </dl>
+
+            <table border="1"> <!--Can also get attributes ex: border = "size of the border"-->
+                  <colgroup>
+                        <col style="background-color: deeppink;" span="2"/> <!-- Only for style the table-->
+                        <col style="background-color: rebeccapurple;"/>
+                        <col style="background-color: blue;"/>
+                  </colgroup>
+                  <thead>
+                        <tr>
+                              <!-- <th colspan="4">Colum 1</th> -->
+                              <th scope="col1">Colum 1</th> <!-- Table head --> <!-- Colspan can make a header for all of the rows-->
+                              <th scope="col1">Colum 2</th> 
+                              <th scope="col1">Colum 3</th> 
+                              <th scope="col1">Colum 4</th> 
+                        </tr>
+                  </thead>
+
+                  <tbody>
+                        <tr> <!--Table row-->
+                              <th rowspan="2">Secondary title</th> <!-- Table data-->
+                              <td scope="row">Test 2</td>
+                              <td scope="row">Test 3</td>
+                              <td scope="row">Test 4</td>
+                        </tr>
+                        <tr>
+                              <td scope="row">Test 1</td> 
+                              <td scope="row">Test 2</td>
+                              <td scope="row">Test 3</td>
+                              <!-- <td>Test 4</td> -->
+                        </tr>
+                  </tbody>
+                  <tfoot>
+
+                  </tfoot>
+            </table>
+      
+      <form>
+            <fieldset>   <!-- fieldset is better than div's in "form" tag-->
+                  <label>
+                        User name
+                        <input 
+                              type="text" 
+                              name="userName" 
+                              required minlength="5" 
+                              maxlength="10"
+                              pattern="[Tt]est|[Hh]ello|[Ww]orld"  
+                        />     <!--Put the correct type on every input-->   <!-- pattern -> regex -->
+                  </label>
+            </fieldset>
+            <fieldset>
+                  <label for="userFormAge">Age</label>
+                  <input id="userFormAge" type="number" name="age" required />  <!-- make sure theres no same ("userFormAge") id on the page-->
+            </fieldset>
+            <fieldset>
+                  <label>Email</label>
+                  <input type="email" name="email" required  />
+            </fieldset>
+
+            <button>Submit</button> <!--The button will submit the form automatically-->
+      </form>      
       </body>
 </html>
+
+ <!--  Types of photo's
+      .png
+      .jpg
+      .gif
+      .webp -> Format from google https://developers.google.com/speed/webp
+  -->
 
 <!--
       Actors using our web page:
@@ -115,3 +224,27 @@
             ->We as developers
             ->Specials users  (users with disabilities, vision) accessibility [a11y]
  -->
+
+ <!-- 
+      https://www.google.com:443/home/products?name=adidas&category=shoes#someId
+      
+      https:// -> schema (it also includes protocol http)
+      
+      www.google.com -> domain 
+            www -> sub-domain
+            google -> domain
+            com -> top level domain
+
+      :443 -> port -> default port for https
+            :80 -> default port for http
+
+      home/products -> resource path
+
+      ?name=adidas&category=shoes -> query params -> send additional information to the server 
+            -> key value pair
+            -> name = adidas
+            -> & separates key value pairs into groups
+            -> category =  shoes
+
+      #someId -> fragment -> navigates to a given id in the page
+  -->
