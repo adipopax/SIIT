@@ -184,28 +184,30 @@
             </table>
       
       <form>
-            <fieldset>   <!-- fieldset is better than div's in "form" tag-->
-                  <label>
-                        User name
-                        <input 
-                              type="text" 
-                              name="userName" 
-                              required minlength="5" 
-                              maxlength="10"
-                              pattern="[Tt]est|[Hh]ello|[Ww]orld"  
-                        />     <!--Put the correct type on every input-->   <!-- pattern -> regex -->
-                  </label>
-            </fieldset>
             <fieldset>
-                  <label for="userFormAge">Age</label>
-                  <input id="userFormAge" type="number" name="age" required />  <!-- make sure theres no same ("userFormAge") id on the page-->
+                  <legend>Nu mai zic</legend>
+                  <div>   <!-- fieldset is better than div's in "form" tag-->
+                        <label>
+                              User name
+                              <input 
+                                    type="text" 
+                                    name="userName" 
+                                    required minlength="5" 
+                                    maxlength="10"
+                                    pattern="[Tt]est|[Hh]ello|[Ww]orld"  
+                              />     <!--Put the correct type on every input-->   <!-- pattern -> regex -->
+                        </label>
+                  </div>
+                  <div>
+                        <label for="userFormAge">Age</label>
+                        <input id="userFormAge" type="number" name="age" required />  <!-- make sure theres no same ("userFormAge") id on the page-->
+                  </div>
+                  <div>
+                        <label>Email</label>
+                        <input type="email" name="email" required  />
+                  </div>
             </fieldset>
-            <fieldset>
-                  <label>Email</label>
-                  <input type="email" name="email" required  />
-            </fieldset>
-
-            <button>Submit</button> <!--The button will submit the form automatically-->
+                  <button>Submit</button> <!--The button will submit the form automatically-->
       </form>      
       </body>
 </html>
