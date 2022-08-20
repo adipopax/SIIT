@@ -9,10 +9,12 @@ ul li {
     color: green;
 }
 
-li .highlight {
+li .highlight {   /* all the elements that have the class 'highlight' in 'li'*/
     color: orange;
 }
 
 .highlight {
     color: deeppink;
 }
+
+Inregistrare curs 8:59
