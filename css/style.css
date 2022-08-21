@@ -10,6 +10,7 @@ ul li {
 }
 
 li .highlight {   /* all the elements that have the class 'highlight' in 'li'*/
+    /* Inheritance */
     color: orange;
 }
 
@@ -17,4 +18,45 @@ li .highlight {   /* all the elements that have the class 'highlight' in 'li'*/
     color: deeppink;
 }
 
-Inregistrare curs 8:59
+#someId {
+    color: blue;
+}
+
+* {
+    font-size: 24px;
+}
+
+[hello="something"] {
+    color: yellow;
+}
+
+#someId {
+    color: deeppink;
+}
+
+/* 
+    tag (element) - least specific
+    class attribute - more specific
+    id - most specific
+*/
+/* #red {
+    color: red;
+} */
+
+.yellow {
+    color: yellow;
+}
+
+[class] {
+    color: deeppink;
+}
+
+article {
+    color: blue;
+}
+
+/* #red {
+    color: blue;
+} */
+
+inregistra 21:31
