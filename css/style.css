@@ -123,3 +123,44 @@
     display: inline;
     /* visibility: visible; */
   }
+
+  /* 
+    Color units:
+      -> color name
+      -> hex
+      -> rgb
+      -> hsl
+  */
+/* 8 bytes */
+  .color-example {
+    /* color: rgba(255, 0, 0, 0.5);
+    color: rgb(255, 0, 0,); */
+
+    /* 
+      Hex max value is f
+      Hex : 1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+    */
+    /* color: #dbdde3; */
+
+    /* HUE SATURATION LIGHTNESS */
+    color: hsl(350deg, 87%, 43%);
+     /* color: hsla(350deg, 87%, 43%, 0,8); */
+     /* opacity: 0,7; */
+  }
+
+  .bg-blue {
+    background-color: rgb(0, 0, 255);
+  }
+
+  body {
+    margin-bottom: 100px;
+  }
+
+  /* 
+    CSS units of measurement :
+      -> px
+      -> %
+      -> fr (grid)
+      -> em - este raportat la font-size-ul elementului
+      -> rem -> este raportat la font-size-ul elementului HTML
+  */
