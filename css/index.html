@@ -8,7 +8,13 @@
 
     <title>CSS</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .u-color-red {
+            color: blue !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,32 +23,68 @@
         <li class="highlight">2</li>
         <li hello="something">3</li>
         <li hello="somethingElse">4</li>
+        <li>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
     </ul>
 
     <ul class="list">
         <li>1</li>
         <li>
             <div>
-                <span class="highlight">
-                    2
-                </span>
+                <div>
+                    <span class="highlight">
+                        2
+                    </span>
+                </div>
             </div>
         </li>
         <li>3</li>
         <li>4</li>
     </ul>
 
-    <article class="yellow" id="red">
+    <article class="yellow u-color-red" id="red" style="color: deeppink">
         This is a pink text
     </article>
+
+    <img src="./assets/specifishity.png">
+
+    <p>
+        <button class="btn-submit">Submit</button>
+    </p>
+
+    <a href="https://google.com" target="_blank">Go to google</a>
+    <a href="https://google.com?q=something" target="_blank">Go to google</a>
+
+    <p class="my-paragraph">
+        <!-- Before element -->
+        <!-- <span>🔥</span> -->
+
+        Hello world
+
+        <!-- After element -->
+        <!-- <span>🔥</span> -->
+    </p>
+
+    <fieldset class="register-form">
+        <div>
+            <label for="email">Email</label>
+            <input id="email" placeholder="Here goes your input..." />
+        </div>
+
+        <label for="email2">Email</label>
+        <input id="email2" placeholder="Here goes your input..." />
+    </fieldset>
 </body>
 
 </html>
 
 <!-- 
-    CSS :
-    -> Style anything .
-    -> Cascading Style Sheets
-    -> Inline, internal and external.
-    -> key -> value pair Ex: color: red;
+  CSS: 
+  -> Style anything .
+  -> Cascading Style Sheets
+  -> Inline, internal and external.
+  -> key -> value pair Ex: color: red
  -->
