@@ -1,0 +1,86 @@
+/* 
+      CSS positioning
+      -> relative
+      -> absolute
+      -> fixed
+      -> sticky
+
+      these positions enable us the use of the folowing additional properties
+
+      - top
+      - left
+      - right 
+      - botto,
+*/
+
+.root {
+      --box-width: 300px;
+      --box-height: 300px;
+}
+
+html,
+body {
+      margin: 0;
+      height: 3000px;
+}
+
+section {
+      height: 1500px;
+}
+
+
+.box {
+      width: 200px;
+      height: 200px;
+      background-color: deeppink;
+      margin-bottom: 10px;
+    }
+
+.box-yellow{
+      background-color: yellow;
+      position: relative;
+      top: 20px;
+      left: 50px;
+      /* z-index: -1; */
+}
+
+.box-container{
+      position: relative;
+}
+
+.box-green {
+      background-color: green;
+      position: absolute;
+      top: 50px;
+      left: 20px;
+      z-index: 2;
+}
+
+.box-blue {
+      background-color: blue;
+      position: fixed;
+      top: 10px;
+}
+
+.box-red {
+      background-color: red;
+      position: sticky;
+      top: 0;
+      left: 300px;
+}
+
+.box-center-container {
+      height: 500px;
+      position: relative;
+}
+
+.box-center{
+      position: absolute; 
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      /* with variables */
+      /* top: calc(50%- calc(var(--box-height)/2));
+      left: calc(50%- calc(var(--box-width)/2));
+      transform: translate(-50%, 50%); */
+}
