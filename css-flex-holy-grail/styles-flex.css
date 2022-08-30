@@ -1,0 +1,46 @@
+html,
+body {
+      height: 100%;
+}
+
+header {
+      background-color: blue;
+      flex: 1;
+}
+
+nav {
+      background-color: red;
+      flex: 1;
+}
+
+main {
+      background-color: deeppink;
+      flex: 6;
+}
+
+.main-content {
+      display: flex;
+      flex: 3;
+}
+
+aside {
+      background-color: purple;
+      flex: 1;
+}
+
+footer {
+      background-color: green;
+      flex: 1;
+}
+
+.holly-grail-container {
+      display: flex;
+
+      flex-direction: column;
+
+      
+      height: 100%;
+      /* by default  height: auto */
+}
+
+
