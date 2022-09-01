@@ -1,31 +1,51 @@
 html,
 body {
-      height: 100%;
+  height: 100%;
 }
 
 header {
-      background-color: blue;
-
-}
-
-nav {
-      background-color: red;
-
-}
-
-main {
-      background-color: deeppink;
-
+  background-color: blue;
+  height: 20%;
 }
 
 .main-content {
-      display: ;
+  height: 60%;
+}
 
+nav {
+  display: inline-block;
+  height: 100%;
+  width: 20%;
+  background-color: red;
+}
+
+main {
+  display: inline-block;
+  background-color: deeppink;
+  height: 100%;
+  width: 60%;
+  margin-left: -4px;
 }
 
 aside {
-      background-color: purple;
+  display: inline-block;
+  height: 100%;
+  width: 20%;
+  margin-left: -4px;
+  background-color: purple;
+}
 
+footer {
+  background-color: green;
+  height: 20%;
+}
+
+.holy-grail-container {
+
+  /* 
+    height: auto; by default
+  */
+  height: 100%;
 }
 
 footer {

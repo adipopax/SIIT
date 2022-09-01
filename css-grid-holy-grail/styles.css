@@ -1,41 +1,66 @@
 html,
 body {
-      height: 100%;
+  height: 100%;
 }
 
 header {
-      background-color: blue;
-
+  grid-area: hello;
+  background-color: blue;
 }
 
-nav {
-      background-color: red;
+/* header,
+footer {
+  grid-column: span 3;
+} */
 
+.main-content {}
+
+nav {
+  grid-area: nav;
+  background-color: red;
 }
 
 main {
-      background-color: deeppink;
-
-}
-
-.main-content {
-      display: grid;
+  grid-area: main;
+  background-color: deeppink;
 }
 
 aside {
-      background-color: purple;
-
+  grid-area: aside;
+  background-color: purple;
 }
 
 footer {
-      background-color: green;
-
+  grid-area: footer;
+  background-color: green;
 }
 
-.holly-grail-container {
+.holy-grail-container {
+  display: grid;
 
+  grid-template-areas:
+    "footer footer footer"
+    "hello hello hello"
+    "nav main aside";
 
-      
-      height: 100%;
-      /* by default  height: auto */
+  grid-template-columns: 1fr 5fr 1fr;
+
+  height: 100%;
 }
+
+.mobile {
+  grid-template-areas:
+    "footer"
+    "hello"
+    "nav"
+    "main"
+    "aside";
+}
+
+/* 
+.holy-grail-container {
+  display: grid;
+  grid-template-rows: 150px auto 150px;
+  grid-template-columns: 1fr 5fr 1fr;
+  height: 100%;
+} */
