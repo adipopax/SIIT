@@ -13,7 +13,9 @@ footer {
   grid-column: span 3;
 } */
 
-.main-content {}
+.main-content {
+      
+}
 
 nav {
   grid-area: nav;
