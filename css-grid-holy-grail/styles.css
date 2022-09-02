@@ -13,6 +13,7 @@ footer {
   grid-column: span 3;
 } */
 
+.main-content {}
 
 nav {
   grid-area: nav;
@@ -56,10 +57,11 @@ footer {
     "aside";
 }
 
-/* 
-.holy-grail-container {
-  display: grid;
-  grid-template-rows: 150px auto 150px;
-  grid-template-columns: 1fr 5fr 1fr;
-  height: 100%;
-} */
+@media (max-width: 600px) {
+  .holy-grail-container {
+    grid-template-areas:
+      "main main main"
+      "hello hello hello"
+      "nav footer aside";
+  }
+}

@@ -1,22 +1,20 @@
 .container {
       display: grid;
       /* 
-      min-width : 200px
-      max-width : 1fr (non fraction of the available space)
+        min-width: 200px
+        max-width: 1fr (one fraction of the available space)
       */
-
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       grid-template-rows: 100px;
       grid-auto-rows: 100px;
       gap: 10px;
-}
-
-.card {
+    }
+    
+    .card {
       background-color: deeppink;
       /* 
-            width : min (30vw, 500px);
+        width: min(30vw, 500px);
+        width: max(30vw, 300px);
+        height: 300px;
       */
-      /* 
-            width : max(30vw, 300px);
-      */
-}
+    }
