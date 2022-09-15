@@ -71,18 +71,18 @@ const houseCat = 'Tom';
     Modulo : %
 */
 
-let sum = 10;
-// sum --  => 9;
-// sum +=  => 20;
-// sum -=  => 0;
-// sum *=  => 100;
+let sum2 = 10;
+// sum2 --  => 9;
+// sum2 +=  => 20;
+// sum2 -=  => 0;
+// sum2 *=  => 100;
 
 // Expression -> code that evaluates to a value
-sum++;
-// sum = sum + 10;
-// sum = sum / 10 * 2;
-// sum = sum / (10 * 2);
-// console.log(sum);
+sum2++;
+// sum2 = sum2 + 10;
+// sum2 = sum2 / 10 * 2;
+// sum2 = sum2 / (10 * 2);
+// console.log(sum2);
 
 const hello = 'Hello'
 const world = 'World'
@@ -351,3 +351,269 @@ for (let index = 0; index < shoppingList.length; index++) {
 }
 
 console.log(shoppingListWithQuantity);
+
+
+// const array = ['hello', 12, 34, true, false, null, undefined, [1, 2, 3, [1, 2, 3]]];
+
+const array = ['hello', 'test'];
+
+
+array[0]
+
+/**
+ * Create a custom functionality to sum two numbers together
+ */
+
+
+// this works because of hoisting
+// 4, 5 are function arguments
+console.log(sum(4, 5));
+
+// function declaration
+function sum(a, b) {
+    // a, b function parameters
+    return a + b ;
+} 
+
+// function expression
+const sum3 = function(a, b) {
+    return a + b;
+}
+
+const sumResult = sum3(10, 12);
+
+console.log(sum3);
+console.log(sum3(10, 12));
+
+// ARROW FUNCTION
+
+
+/**
+ * Notice:
+ *  - function keyword is gone
+ *  - return keyword is gone
+ *  - function curly braces are gone
+ */
+const arrowFunctionSum = (a ,b) => a + b;
+
+const arrowFunctionSum2 = (a, b) => {
+    console.log('I have multiple lines');
+    return a + b;
+};
+
+const result = arrowFunctionSum(2, 3);
+console.log(result);
+
+
+/**
+ * ! Callback functions !
+ */
+/**
+ * Only add together positive numbers
+ * 
+ * Callback parameter will be a function
+ */
+
+function onlyPositive(a, b, callback) {
+    // early return -> when the return is not at the end of the function
+    if (a  > 0 && b > 0) {
+        // if (action === '+') {
+        //     return add(a, b);
+        // } else {
+        //     return subtract (a, b);
+        // }
+
+
+        /**
+         * This will be 
+         * add function 
+         * or subtract function
+         * based on what the user of this function provides us
+         */
+        return callback(a, b);
+    }
+
+    console.log('Hello world');
+
+    return false
+}
+
+/**
+ * Only subtract positive numbers
+ */
+
+function add (a, b) {
+    return a + b;
+}
+
+function subtract (a, b) {
+    return a - b;
+}
+
+// Multiply
+function multiply(a, b) {
+    return a * b
+}
+
+
+console.log('Show only positive' , onlyPositive(4, 5, add));
+console.log('Show only positive and Subtract',subtract(10, 20, subtract));
+console.log('Show only positive and Multiply',multiply(10, 20, multiply));
+
+
+// LOOPS
+
+for (let i = 0; i < 10; i++ ) {
+    console.log(i);
+}
+
+// for (let i = 9; i >= 0; i-- ) {
+//     console.log(i);
+// }
+
+const shoppingList2 = ['Turkey', 'Bread', 'Meat', 'Vegetables', 'Fruits'];
+
+// For of
+
+for (const product of shoppingList2) {
+    console.log('For of ', product);
+}
+
+for (let i = 0; i < shoppingList2.length; i++ ) {
+    console.log('For of #2', shoppingList2[i]);
+}
+
+// While loop
+
+let index = 0;
+
+// condition
+while ( index < shoppingList2.length) {
+    // execute
+    console.log('While', shoppingList2[index]);
+    index++;
+}
+
+//do while
+
+let index2 = 0;
+
+do {
+    console.log('Do while', shoppingList2[index2]);
+    index2++;
+}   while (  index2 < shoppingList2.length );
+
+/**
+ * Where is our list of products ['apple', 'banana']
+ * Listen to a button click
+ * take products from the list and store it somewhere
+ */
+
+
+// OBJECTS
+
+const firstName = 'Alin';
+const lastName = 'Patroi';
+const dateOfBirth = '1993-2-3';
+
+/**
+ * Objects have :
+ *  - properties ( Key )
+ *  - methods ( Functions )
+ * 
+ * Objects consist of key - value pairs
+ */
+
+// Objects literal
+
+const alin = {
+    firstName: 'Anlin',
+    lastName: 'Patroi',
+    dateOfBirth: '1993-2-3',
+};
+
+const house = {
+    rooms: 3,
+    roof: true,
+    squareMeters: 34,
+    floors: 3,
+    'hello-world': 'something else',
+    '2orice-ne-dorim-noi': '',
+    3: 'ce vrei tu',
+    'hello-world': 'Hello World',
+    roomConfiguration: ['Kitchen', 'Bathroom'],
+    roomDetails: {
+        kitchen: {
+            doors: 2,
+            windows: 1,
+        }
+    },
+    openDoor: function() {
+        console.log('door has been opened')
+
+        return true
+    },
+    getNumberOfConfigurations() {
+        this.openDoor();
+
+        return this.roomConfiguration.length;
+    }
+};
+
+const objectKeyName = '2orice-ne-dorim-noi';
+
+house.rooms;
+house.roomDetails.kitchen.doors;
+house["hello-world"];
+house[objectKeyName];
+
+house.rooms = 4;
+
+house.openDoor();
+
+console.log(house.getNumberOfConfigurations());
+
+console.log(house);
+
+house.newProperty = 'newProperty';
+house['newProperty'] = 'newProperty';
+
+delete house.newProperty;
+
+/**
+ * For in to iterate over object keys
+ */
+
+for (const key in house) {
+    console.log(house[key]);
+}
+
+// console.log(Object.value(house));
+// console.log(Object.keys(house));
+
+for (const propertyValue of Object.values(house)) {
+
+}
+
+const availableProducts = [
+    {
+        id: '1',
+        productName: 'Set Pacco..',
+        price: 200,
+    },
+    {
+        id: '2',
+        productName: 'Lama de ras',
+        price: 200,
+    },
+];
+const discounts = [
+    {
+        discountForProductId: '1',
+        percent: 20,
+    },
+    {
+        discountForProductId: '2',
+        percent: 50,
+    },
+];
