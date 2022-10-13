@@ -40,7 +40,7 @@ setTimeout(() => {
  
  // URL
  
- // schema://subdomanin.domain.higher level domain/params
+ // schema://subdomain.domain.higher level domain/params
  // https://www.google.com/users
  
  /**
