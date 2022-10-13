@@ -12,19 +12,19 @@
  * First, Fourth, Second, Third,
  */
 
- console.log('First console.log');
+console.log('First console.log');
 
- document.addEventListener('click', () => {
+document.addEventListener('click', () => {
    console.log('Fifth element');
- });
+});
  
  setTimeout(() => {
    console.log('Third console.log');
- }, 1000);
+}, 1000);
  
- setTimeout(() => {
+setTimeout(() => {
    console.log('Second console.log');
- }, 0);
+}, 0);
  
  // setInterval(() => {
  //   console.log('Hello from interval');
@@ -78,7 +78,7 @@
  const searchButton = document.querySelector('[data-search]');
  const outputSection = document.querySelector('[data-output]');
  
- searchButton.addEventListener('click', (event) => {
+searchButton.addEventListener('click', (event) => {
    event.preventDefault();
  
    const userInput = searchInput.value;
@@ -90,9 +90,9 @@
    fetch(url)
      .then((response) => response.json())
      .then((data) => displayWeatherResult(data));
- });
+});
  
- function displayWeatherResult(data) {
+function displayWeatherResult(data) {
    const template = document.querySelector('#weatherOutput');
    const clonedTemplate = template.content.cloneNode(true);
  
@@ -103,12 +103,12 @@
    const tableBodyRow = clonedTemplate.querySelector('[data-tbodyrow]');
  
    if (data.currentConditions.temp > 20 && data.currentConditions.temp < 25) {
-     temp.classList.add('perfect');
+    temp.classList.add('perfect');
    }
    temp.textContent = data.currentConditions.temp;
    description.textContent = data.description;
  
-   for (let day of data.days) {
+    for (let day of data.days) {
      const th = document.createElement('th');
      const td = document.createElement('td');
  
@@ -117,13 +117,13 @@
  
      tableHeadRow.appendChild(th);
      tableBodyRow.appendChild(td);
-   }
+    }
  
    outputSection.appendChild(clonedTemplate);
- }
+}
  
- function getLang() {
+function getLang() {
    if (navigator.languages != undefined)
-     return navigator.languages[0];
+    return navigator.languages[0];
    return navigator.language;
- }
+}
