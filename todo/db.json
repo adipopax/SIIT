@@ -1,0 +1,18 @@
+{
+    "todos": [
+        {
+            "title": "Test 1",
+            "description": "siit-29 test description",
+            "addedDate": "2022-10-12",
+            "deadline": "2023-10-12",
+            "id": "1"
+        },
+        {
+            "title": "Test 2",
+            "description": "siit-29 test description",
+            "addedDate": "2022-10-12",
+            "deadline": "2023-10-12",
+            "id": "2"
+        }
+    ]
+}
