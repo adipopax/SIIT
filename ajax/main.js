@@ -73,6 +73,18 @@ setTimeout(() => {
   * JavaScript Object as a String
   * 
   */
+
+ /**
+  * 
+  * HTTP Status codes
+  * 
+  * 1xx - Informative status codes
+  * 2xx - Success
+  * 3xx - Redirect
+  * 4xx - Client side errors (404 - Not found) (403 - Unauthorized) (401 - Unauthenticated)
+  * 5xx - Server side errors
+  * 
+  */
  
  const searchInput = document.querySelector('[data-city]');
  const searchButton = document.querySelector('[data-search]');
@@ -82,14 +94,40 @@ searchButton.addEventListener('click', (event) => {
    event.preventDefault();
  
    const userInput = searchInput.value;
-   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userInput}?unitGroup=metric&key=VRZLUY6J2RJJYZ2FGDFNVSYHE&contentType=json`;
+   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(userInput)}?unitGroup=metric&key=VRZLUY6J2RJJYZ2FGDFNVSYHE&contentType=json`;
    
    searchInput.value = '';
    outputSection.innerHTML = '';
  
-   fetch(url)
-     .then((response) => response.json())
-     .then((data) => displayWeatherResult(data));
+   // Fetch returns Promise
+   // .then will be called when promise is fulfilled - this happens when everything is ok
+   // .catch will be called when a promise is rejected - this happens when we have an error
+   // .finally will be called when a promise is fulfilled or rejected. 
+   fetch(url, {
+      // headers: {
+      //    'Content-Type': 'application/json', // 'text/plain' - 'octet-stream'
+      //    'Authorization': 'token'
+      // }
+   })
+      // Deserialize - converts JSON to a JS object.
+     .then((response) => {
+         if (response.ok) {
+            return response.json()
+         }
+        
+         if (response.status >= 400 && response.status < 500) {
+            throw new Error('Search therm is invalid try another city');
+         } else
+         
+         if (response.status >= 500) {
+            throw new Error(`We're experiencing issues right now. Try again later`);
+         }
+      })
+     .then((data) => displayWeatherResult(data))
+     .catch((error) => {
+         outputSection.textContent = error;
+      })
+     .finally(() => console.log('Promise has finalized'));
 });
  
 function displayWeatherResult(data) {
