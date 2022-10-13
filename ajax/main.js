@@ -117,7 +117,7 @@ function displayWeatherResult(data) {
  
      tableHeadRow.appendChild(th);
      tableBodyRow.appendChild(td);
-    }
+   }
  
    outputSection.appendChild(clonedTemplate);
 }
