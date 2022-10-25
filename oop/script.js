@@ -183,4 +183,31 @@ const showMood = grizzly.showMood;  //.bind(grizzly); -> doesn't call the method
 
 showMood();
 
+// Getter and setter
+// Magic methods
+class House {
+  door = 0;
+
+  get door() {
+    return this.door;
+  }
+
+  set door(number) {
+    this.door = number;
+  }
+
+  setDoor(number) {
+    this.door = number;
+  }
+
+  getDoor() {
+    return this.door;
+  }
+}
+
+const house = new House();
+
+house.door = 5;
+console.log(house.door);
+
 
