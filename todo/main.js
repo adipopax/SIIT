@@ -6,6 +6,12 @@
  * 4. Update todo (PATCH/PUT /todos/:id)
  */
 
+ const titleElement = document.querySelector('[data-title]');
+ const descriptionElement = document.querySelector('[data-description]');
+ const deadlineElement = document.querySelector('[data-deadline]');
+ const createTodo = document.querySelector('[data-createTodo]');
+ const editTodo = document.querySelector('data-editTodo');
+
  const url = 'http://localhost:3000';
  const endpoint = '/todos';
  
@@ -20,6 +26,9 @@
  function listTodos(todos) {
    const template = document.querySelector('#todo-card');
    const output = document.querySelector('[data-todoList]');
+
+   output.innerHTML = '';
+   
  
    for (const todo of todos) {
     const clonedTemplate = template.content.cloneNode(true);
@@ -32,10 +41,58 @@
  
     const deadline = clonedTemplate.querySelector('[data-todoDeadline]');
     deadline.textContent = todo.deadline;
+
+    const deleteButton = clonedTemplate.querySelector(['data-delete']);
+    deleteButton.setAttribute('id', todo.id);
+
+    deleteButton.addEventListener(click, () => {
+      // '${url} ${endpoint}/${todo.id}'
+      fetch(url + endpoint + '/' + deleteButton.getAttribute('id'),{ method: 'DELETE' })
+        .then(() => relativeToDos())
+    })
+
+    const editButton = clonedTemplate.querySelector('[data-edit]');
+
+    editButton.addEventListener(click, () => {
+      titleElement.value = todo.title;
+      descriptionElement.value = todo.description;
+      deadlineElement.value = todo.deadline;
+    });
+
+    createTodo.classList.add('hidden');
+    editTodo.classList.remove('hidden');
+    editTodo.setAttribute('id', todo.id)
  
     output.appendChild(clonedTemplate);
   }
 }
+
+editTodo.addEventListener(click, (event) => {
+  event.preventDefault();
+
+  const title = titleElement.value;
+  const description = descriptionElement.value;
+  const deadline = deadlineElement.value;
+  const id = editTodo.getAttribute('id');
+
+  const body = {
+    title,
+    description,
+    deadline,
+  };
+  const json = JSON.stringify(body);
+
+  fetch(url + endpoint + '/' + id, {
+    method: 'PUT',
+    body: json,
+    headers : {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(() => {
+      retrieveTodoList();
+    });
+})
  
  /**
   * strongly typed programming languages
@@ -93,11 +150,7 @@
  
  // sayNumber(numberObject);
  // console.log(numberObject);
- 
- const titleElement = document.querySelector('[data-title]');
- const descriptionElement = document.querySelector('[data-description]');
- const deadlineElement = document.querySelector('[data-deadline]');
- const createTodo = document.querySelector('[data-createTodo]');
+
  
  createTodo.addEventListener('click', function(event) {
    event.preventDefault();
