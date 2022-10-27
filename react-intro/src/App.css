@@ -1,0 +1,54 @@
+html,
+body{
+  height: 100%;
+}
+
+:root {
+  --red: red;
+  --blue: blue;
+  --yellow: yellow;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+  margin: 0 auto;
+}
+
+section{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.btn {
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-red {
+  background-color: var(--red);
+}
+
+.btn-blue {
+  background-color: var(--blue);
+}
+
+.btn-yellow {
+  background-color: var(--yellow);
+  color: black;
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
