@@ -1,11 +1,6 @@
-html,
-body{
-  height: 100%;
-}
-
 :root {
-  --red: red;
-  --blue: blue;
+  --red: rgb(229, 55, 55);
+  --blue: rgb(61, 61, 217);
   --yellow: yellow;
 }
 
@@ -14,13 +9,6 @@ main {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 60%;
-  margin: 0 auto;
-}
-
-section{
-  width: 60%;
-  margin: 0 auto;
 }
 
 .btn {
@@ -33,11 +21,11 @@ section{
 }
 
 .btn-blue {
-  background-color: var(--blue);
+  background-color: var(--blue);;
 }
 
 .btn-yellow {
-  background-color: var(--yellow);
+  background-color: var(--yellow);;
   color: black;
 }
 
@@ -46,9 +34,9 @@ section{
 }
 
 .bg-blue {
-  background-color: var(--blue);
+  background-color: var(--blue);;
 }
 
 .bg-yellow {
-  background-color: var(--yellow);
+  background-color: var(--yellow);;
 }
