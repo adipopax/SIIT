@@ -1,4 +1,3 @@
-
 import './App.css';
 import { MovieListComponent } from './pages/movie-list/MovieListComponent';
 import {
