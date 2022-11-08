@@ -26,8 +26,12 @@ export function MovieDetails() {
     })
       .then(() => {
         window.sessionStorage.removeItem('movies');  
-        navigate('../../')
-      })
+        navigate('/')
+      });
+  }
+
+  function editMovie() {
+    navigate('./edit');
   }
 
   return (
@@ -38,6 +42,7 @@ export function MovieDetails() {
       <img src={movieDetails.Poster} alt="Movie image" />
 
       <button onClick={deleteMovie}>Delete</button>
+      <button onClick={editMovie}>Edit</button>
     </section>
   )
 }
