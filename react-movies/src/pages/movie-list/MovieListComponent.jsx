@@ -39,6 +39,7 @@ export function MovieListComponent() {
               Type={movie.Type}
               Poster={movie.Poster}
               id={movie.id}
+              key={movie.id}
             ></MovieCardComponent>
           );
         })}

@@ -18,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MovieListComponent />}></Route>
         <Route path='/movie-details/:movieId' element={<MovieDetails />}></Route>
+        <Route path='/movie-details/:movieId/edit' element={<MovieDetails />}></Route>
       </Routes>
     </BrowserRouter>
     // <MovieListComponent></MovieListComponent>
