@@ -8,25 +8,17 @@ export function MovieDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const movies = JSON.parse(sessionStorage.getItem('movies'));
-    const movie = movies?.find((movie) => movie.id === movieId);
-
-    if (movie ) {
-      setMovieDetails(movie);
-    } else {
-      fetch(`${movieDetailUrl}/${movieId}`)
-        .then((response) => response.json())
-        .then((movie) => setMovieDetails(movie))
-    }
+    fetch(`${movieDetailUrl}/${movieId}`)
+      .then((response) => response.json())
+      .then((movie) => setMovieDetails(movie))
   }, []);
 
   function deleteMovie() {
     fetch(`${movieDetailUrl}/${movieId}`, {
-      method: 'DELETE', 
+      method: 'DELETE',
     })
       .then(() => {
-        window.sessionStorage.removeItem('movies');  
-        navigate('/')
+        navigate('/');
       });
   }
 
