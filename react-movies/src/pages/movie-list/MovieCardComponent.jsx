@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom';
 import movieCardStyles from './MovieCardComponent.module.css';
 
-// Cart is a list []
-// Each item in tha cart should be an object 
-
 export function MovieCardComponent(props) {
   const cartUrl = 'http://localhost:3001/cart';
   const { Title, Year, Type, Poster, id } = props;
@@ -16,7 +13,7 @@ export function MovieCardComponent(props) {
       .then(cartMovies => {
         const [cartMovie] = cartMovies;
 
-        if(cartMovie) {
+        if (cartMovie) {
           updateCartMovieQuantity(cartMovie);
         } else {
           createCartMovie();
@@ -29,17 +26,17 @@ export function MovieCardComponent(props) {
       method: 'POST',
       body: JSON.stringify({ movieId: id, quantity: 1 }),
       headers: {
-        'Content type': 'application/json'
+        'Content-Type': 'application/json'
       }
     });
   }
-  
+
   function updateCartMovieQuantity(cartMovie) {
-    fetch(`${cartMovie}/${cartMovie.id}`, {
+    fetch(`${cartUrl}/${cartMovie.id}`, {
       method: 'PATCH',
       body: JSON.stringify({ quantity: cartMovie.quantity + 1 }),
       headers: {
-        'Content type': 'application/json'
+        'Content-Type': 'application/json'
       }
     });
   }
@@ -49,13 +46,13 @@ export function MovieCardComponent(props) {
       <li>
         <article className={movieCardStyles['movie-card']}>
           <h3 className={movieCardStyles['movie-card--title']}>{Title}</h3>
-  
+
           <span>{Year}</span>
           <span>{Type}</span>
-  
+
           <img src={Poster} alt="Movie poster" />
         </article>
-  
+
         <button onClick={addToCart}>Add to cart</button>
       </li>
     </Link>

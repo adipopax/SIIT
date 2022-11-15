@@ -1,4 +1,3 @@
-
 import './App.css';
 import { MovieListComponent } from './pages/movie-list/MovieListComponent';
 import {
@@ -8,7 +7,6 @@ import {
 } from "react-router-dom";
 import { MovieDetails } from './pages/movie-details/MovieDetailsComponent';
 import { MovieEditComponent } from './pages/movie-edit/MovieEditComponent';
-import { ShoppingCart } from './pages/cart/cart';
 
 /**
  * SPA -> Single Page Application
@@ -21,7 +19,7 @@ function App() {
         <Route path="/" element={<MovieListComponent />}></Route>
         <Route path='/movie-details/:movieId' element={<MovieDetails />}></Route>
         <Route path='/movie-details/:movieId/edit' element={<MovieEditComponent />}></Route>
-        <Route path='/create' element={<ShoppingCart />}></Route>
+        <Route path='/create' element={<MovieEditComponent formType='create' />} ></Route>
       </Routes>
     </BrowserRouter>
     // <MovieListComponent></MovieListComponent>
@@ -43,4 +41,5 @@ export default App;
  * + Additional suggestions: 
  * - Quantity on movies than can be purchased.
  * - Search for movies + additional filters (Genre / etc)
+ * - upload image
  */
